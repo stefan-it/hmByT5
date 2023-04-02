@@ -5,7 +5,7 @@ import tensorflow_datasets as tfds
 from pathlib import Path
 
 class Builder(tfds.core.GeneratorBasedBuilder):
-  """DatasetBuilder for de_dataset dataset."""
+  """DatasetBuilder for fr_dataset dataset."""
 
   VERSION = tfds.core.Version('1.0.0')
   RELEASE_NOTES = {
