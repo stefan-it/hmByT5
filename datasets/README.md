@@ -20,3 +20,9 @@ $ tfds new nl_dataset
 ```
 
 Then each dataset will be configured to read-in the original corpus for the corresponding language.
+
+After that, the TensorFlow Dataset can be built for each language:
+
+```bash
+$ tfds build
+```
