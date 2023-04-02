@@ -20,6 +20,7 @@ class Builder(tfds.core.GeneratorBasedBuilder):
       }),
       supervised_keys=None,  # Set to `None` to disable
       homepage='https://github.com/stefan-it/hmByT5',
+      disable_shuffling=True,
     )
 
   def _split_generators(self, dl_manager: tfds.download.DownloadManager):
