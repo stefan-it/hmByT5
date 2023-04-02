@@ -1,5 +1,7 @@
 # TensorFlow Dataset Creation
 
+TensorFlow 2.12.0 and TensorFlow datasets in version 4.8.3 are used in our experiments.
+
 For each language, we create TensorFlow Datasets via:
 
 ```bash
