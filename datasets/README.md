@@ -211,3 +211,27 @@ tfds.core.DatasetInfo(
     citation="""// TODO(nl_dataset): BibTeX citation""",
 )
 ```
+
+# Upload TensorFlow Datasets
+
+The T5 library expects the training dataset (created via TensorFlow Datasets) on a GCP bucket. First, the `gcloud` utils needs to be installed. This can be done in a Docker container via:
+
+```bash
+$ curl -sSL https://sdk.cloud.google.com | bash
+$ gcloud auth login
+```
+
+Then you need to authorize via your Google account and copy-paste the corresponding token. In the next you need to create a GCP bucket (`hmbyt5`) in the same zone as your TPU. Please give "Storage Administrator" permissions to your `service*` account in the GCP bucket web console. After creating the GCP bucket, just create a folder `datasets`, where all TensorFlow Datasets can be uploaded to.
+
+The location of the previously created TensorFlow Datasets is `$HOME/tensorflow_datasets`. Just change to that folder and upload all created datasets:
+
+
+```bash
+$ cd $HOME/tensorflow_datasets
+$ gsutil -o GSUtil:parallel_composite_upload_threshold=150M -m cp -r de_dataset gs://hmbyt5/datasets
+$ gsutil -o GSUtil:parallel_composite_upload_threshold=150M -m cp -r en_dataset gs://hmbyt5/datasets
+$ gsutil -o GSUtil:parallel_composite_upload_threshold=150M -m cp -r fi_dataset gs://hmbyt5/datasets
+$ gsutil -o GSUtil:parallel_composite_upload_threshold=150M -m cp -r fr_dataset gs://hmbyt5/datasets
+$ gsutil -o GSUtil:parallel_composite_upload_threshold=150M -m cp -r nl_dataset gs://hmbyt5/datasets
+$ gsutil -o GSUtil:parallel_composite_upload_threshold=150M -m cp -r sv_dataset gs://hmbyt5/datasets
+```
