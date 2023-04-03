@@ -146,7 +146,7 @@ encoder/make_layer_stack.num_layers = 12
 mesh_train_dataset_fn.mixture_or_task_name = %MIXTURE_NAME
 mesh_train_dataset_fn.pack = True
 mesh_train_dataset_fn.seed = None
-mesh_train_dataset_fn.shuffle = True
+mesh_train_dataset_fn.shuffle = False
 mesh_train_dataset_fn.use_cached = False
 
 # Parameters for noise_span_to_unique_sentinel:
