@@ -7,7 +7,7 @@ This section documents pretraining of a ByT5 model using the original T5 and ByT
 In the next step, a VM needs to be created to coordinate the pre-training process. We are using a `n1-standard-2` instance and a customized boot disk size of 50GB. Please notice that the default boot disk size is 10GB, which is not enough for all Python dependencies. We are using TensorFlow 2.8 in our experiments:
 
 ```bash
-$ gcloud compute instances create byt5 --zone=europe-west4-a \
+$ gcloud compute instances create hmbyt5 --zone=europe-west4-a \
   --machine-type=n1-standard-2 --image-project=ml-images \
   --image-family=tf-2-8-0 --scopes=cloud-platform \
   --boot-disk-size 50GB
@@ -18,7 +18,7 @@ The VM should be in the same zone as GCP bucket and TPU.
 After VM creation, we can SSH into it:
 
 ```bash
-$ gcloud compute ssh byt5 --zone europe-west4-a
+$ gcloud compute ssh hmbyt5 --zone europe-west4-a
 ```
 
 Now we immediately start a `tmux` session and run all commands in this session. If the connection to the VM got lost, you can re-sume the session with `tmux attach` after next login.
@@ -33,6 +33,7 @@ $ cd text-to-text-transfer-transformer
 $ git checkout c3be7cf
 $ pip3 install -e .
 $ export PATH=$PATH:$HOME/.local/bin
+$ cd
 ```
 
 Note: we need to use a special commit, because of recent code changes that are not compatible with Python 3.7. The following dependencies needs a downgrade:
@@ -94,3 +95,33 @@ Our current strategy is using the original ByT5 (Small) Model as init checkpoint
 Thus, 6 different GIN configuration files are located in the `configs` folder:
 
 * `./configs/0_english_operative_config.gin`
+
+## TPU Creation
+
+A v3-32 TPU pod can be created via:
+
+```bash
+$ gcloud compute tpus create hmbyt5 --zone=europe-west4-a \
+  --accelerator-type=v3-32 --network=default \
+  --range=192.168.2.0/29 --version=2.8.0
+```
+
+## Start Pretrainings
+
+### English
+
+The first model - on English corpus - can be started with:
+
+```bash
+
+$ cp ./hmByT5/hmbyt5/tasks.py .
+$ cp ./hmByT5/hmbyt5/configs/0_english_operative_config.gin .
+
+$ python3 -m t5.models.mesh_transformer_main \
+--tpu="hmbyt5" \
+--tpu_zone="europe-west4-a" \
+--model_dir="gs://hmbyt5/models/byt5-small-english" \
+--gin_file="./0_english_operative_config.gin" \
+--t5_tfds_data_dir="gs://hmbyt5/datasets" \
+--module_import="tasks"
+```
