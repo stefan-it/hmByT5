@@ -12,6 +12,14 @@ $ git clone https://github.com/flairNLP/flair.git
 $ cd flair
 $ git checkout support_byt5
 $ pip3 install -e .
+$ cd
+```
+
+Clone this repo for fine-tuning NER models:
+
+```bash
+$ git clone https://github.com/stefan-it/hmByT5.git
+$ cd hmByT5/bench
 ```
 
 We use a config-driven hyper-parameter search. The script [`flair-fine-tuner.py`](flair-fine-tuner.py) can be used to
