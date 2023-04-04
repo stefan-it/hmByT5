@@ -56,7 +56,7 @@ def run_experiment(seed: int, batch_size: int, epoch: int, learning_rate: float,
 
     corpora: MultiCorpus = MultiCorpus(corpora=corpus_list, sample_missing_splits=False)
     label_dictionary = corpora.make_label_dictionary(label_type="ner")
-    logger.info("Label Dictionary:", label_dictionary.get_items())
+    logger.info("Label Dictionary: {}".format(label_dictionary.get_items()))
 
     # Embeddings
     embeddings = TransformerWordEmbeddings(
