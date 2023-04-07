@@ -7,5 +7,6 @@
     "learning_rates": [0.00015, 0.00016],
     "subword_poolings": ["first"],
     "hipe_datasets": ["ajmc/en"],
+    "byt5_embedding_implementation": "flair",
     "cuda": "0"
 }
