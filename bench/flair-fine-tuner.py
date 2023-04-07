@@ -30,6 +30,7 @@ def run_experiment(seed: int, batch_size: int, epoch: int, learning_rate: float,
     context_size = json_config["context_size"]
     layers = json_config["layers"] if "layers" in json_config else "-1"
     use_crf = json_config["use_crf"] if "use_crf" in json_config else False
+    byt5_embedding_implementation = json_config["byt5_embedding_implementation"] if "byt5_embedding_implementation" in json_config else "flair"
 
     # Set seed for reproducibility
     set_seed(seed)
@@ -58,15 +59,23 @@ def run_experiment(seed: int, batch_size: int, epoch: int, learning_rate: float,
     label_dictionary = corpora.make_label_dictionary(label_type="ner")
     logger.info("Label Dictionary: {}".format(label_dictionary.get_items()))
 
-    # Embeddings
-    embeddings = TransformerWordEmbeddings(
-        model=hf_model,
-        layers=layers,
-        subtoken_pooling="first",
-        fine_tune=True,
-        subword_pooling=subword_pooling,
-        use_context=context_size,
-    )
+    # ByT5 Embeddings
+    if byt5_embedding_implementation == "flair":
+        embeddings = TransformerWordEmbeddings(
+            model=hf_model,
+            layers=layers,
+            fine_tune=True,
+            subword_pooling=subword_pooling,
+            use_context=context_size,
+        )
+    else:
+        from byt5_embeddings import ByT5Embeddings
+        embeddings = ByT5Embeddings(
+            model=hf_model,
+            layers=layers,
+            subword_pooling=subword_pooling,
+            fine_tune=True,
+        )
 
     tagger: SequenceTagger = SequenceTagger(
         hidden_size=256,
