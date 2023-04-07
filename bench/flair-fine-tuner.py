@@ -61,6 +61,7 @@ def run_experiment(seed: int, batch_size: int, epoch: int, learning_rate: float,
 
     # ByT5 Embeddings
     if byt5_embedding_implementation == "flair":
+        logger.info("Using native ByT5 support in Flair")
         embeddings = TransformerWordEmbeddings(
             model=hf_model,
             layers=layers,
@@ -70,6 +71,7 @@ def run_experiment(seed: int, batch_size: int, epoch: int, learning_rate: float,
         )
     else:
         from byt5_embeddings import ByT5Embeddings
+        logger.info("Using own implementation of ByT5Embeddings")
         embeddings = ByT5Embeddings(
             model=hf_model,
             layers=layers,
