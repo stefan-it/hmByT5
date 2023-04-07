@@ -27,8 +27,8 @@ fine-tune NER models from our Model Zoo.
 
 All configurations can be found under the `configs/ajmc` folder in this repository.
 
-Example command for hyper-parameter search for the hmByT5 model:
+Example command for hyper-parameter search for the hmByT5 model on English part of AjMC corpus:
 
 ```bash
-$ python3 flair-fine-tuner.py ./configs/hmbyt5-small-historic-multilinual.json
+$ python3 flair-fine-tuner.py ./configs/ajmc/hmbyt5-small-en.json
 ```
