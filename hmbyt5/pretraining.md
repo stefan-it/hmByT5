@@ -95,6 +95,7 @@ Our current strategy is using the original ByT5 (Small) Model as init checkpoint
 Thus, 6 different GIN configuration files are located in the `configs` folder:
 
 * `./configs/0_english_operative_config.gin`
+* `./configs/1_german_operative_config.gin`
 
 ## TPU Creation
 
@@ -113,7 +114,6 @@ $ gcloud compute tpus create hmbyt5 --zone=europe-west4-a \
 The first model - on English corpus - can be started with:
 
 ```bash
-
 $ cp ./hmByT5/hmbyt5/tasks.py .
 $ cp ./hmByT5/hmbyt5/configs/0_english_operative_config.gin .
 
@@ -122,6 +122,21 @@ $ python3 -m t5.models.mesh_transformer_main \
 --tpu_zone="europe-west4-a" \
 --model_dir="gs://hmbyt5/models/byt5-small-english" \
 --gin_file="./0_english_operative_config.gin" \
+--t5_tfds_data_dir="gs://hmbyt5/datasets" \
+--module_import="tasks"
+```
+
+The next model - on German corpus - can be started with:
+
+```bash
+$ cp ./hmByT5/hmbyt5/tasks.py .
+$ cp ./hmByT5/hmbyt5/configs/1_german_operative_config.gin .
+
+$ python3 -m t5.models.mesh_transformer_main \
+--tpu="hmbyt5" \
+--tpu_zone="europe-west4-a" \
+--model_dir="gs://hmbyt5/models/byt5-small-german" \
+--gin_file="./1_german_operative_config.gin" \
 --t5_tfds_data_dir="gs://hmbyt5/datasets" \
 --module_import="tasks"
 ```
