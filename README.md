@@ -11,11 +11,11 @@ Upcoming Historic Multilingual ByT5 Model. It covers the following languages:
 
 # Pretraining
 
-We pretrain hmByT5 on a v3-32 TPU Pod. Details about the training can be found [here](hmbyt5/pretraining.md).
+We pretrain hmByT5 on a v3-32 TPU Pod. Details about the training can be found [here](hmbyt5/README.md).
 
 # Evaluation on Downstream Tasks (NER)
 
-We use Flair to fine-tune hmByT5 on HIPE-2022 data.
+We use Flair to fine-tune hmByT5 on HIPE-2022 data. Details about the fine-tuning can be found [here](bench/README.md).
 
 # Acknowledgements
 
