@@ -11,7 +11,8 @@ Upcoming Historic Multilingual ByT5 Model. It covers the following languages:
 
 # Pretraining
 
-We pretrain hmByT5 on a v3-32 TPU Pod. Details about the training can be found [here](hmbyt5/README.md).
+We pretrain hmByT5 on a v3-32 TPU Pod. Details about the training can be found [here](hmbyt5/README.md). Additionally,
+we perform pretraining using Transformers JAX/FLAX example, details can be found [here](hmbyt5-flax/README.md).
 
 # Evaluation on Downstream Tasks (NER)
 
@@ -19,6 +20,10 @@ We use Flair to fine-tune hmByT5 on HIPE-2022 data. Details about the fine-tunin
 
 # **New**: Logbook
 
+* 09.04.2022: Preliminary experiments on English AjMC show, that the pretrained model on English corpus is not on-par
+              with current SOTA. For that reason, we are trying the Hugging Face Transformers JAX/FLAX implementation
+              to pretrain models. Details can be found in [this readme](hmbyt5-flax/README.md). Pretraining has already
+              started.
 * 07.04.2022: Pretraining for 200k steps on the English corpus finished without crashes! TensorBoard logs can be found
               on the [Model Hub](https://huggingface.co/stefan-it/byt5-small-historic-multilingual/tensorboard). We
               also uploaded all checkpoints (we checkpoint every 25k steps)
