@@ -32,3 +32,18 @@ Example command for hyper-parameter search for the hmByT5 model on English part 
 ```bash
 $ python3 flair-fine-tuner.py ./configs/ajmc/hmbyt5-small-en.json
 ```
+
+# Preliminary Results
+
+We evaluated the hmByT5 that was pretrained on English corpus for 200k steps:
+
+| Hyper-param Configuration                | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.  |
+|------------------------------------------|-------|-------|-------|-------|-------|-------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 83.80 | 84.78 | 83.74 | 83.35 | 84.37 | 84.01 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 84.67 | 82.69 | 83.92 | 84.53 | 82.90 | 83.74 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 82.12 | 83.82 | 83.37 | 83.00 | 83.70 | 83.20 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 83.45 | 82.83 | 84.15 | 81.76 | 83.78 | 83.19 |
+
+It turns out, that the results are not on-par with current SOTA on the English AjMC corpus, see a comparison
+[here](https://github.com/stefan-it/blbooks-lms#model-zoo). Thus, we continue experiments with the Hugging Face
+Transformers JAX/FLAX implementation to pretrain ByT5 models on TPU.
