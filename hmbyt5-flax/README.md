@@ -95,7 +95,7 @@ The following commands create and activate a swapfile:
 
 ```
 cd /mnt/datasets
-sudo fallocate -l 10 ./swapfile
+sudo fallocate -l 10GB ./swapfile
 sudo chmod 600 ./swapfile
 sudo mkswap ./swapfile
 sudo swapon ./swapfile
@@ -106,7 +106,7 @@ sudo swapon ./swapfile
 Install TensorBoard to get better training metric visualizations:
 
 ```
-pip install tensorboard tensorflow
+pip install tensorboard==2.12.1 tensorflow==2.12
 ```
 
 ## Hugging Face Model Hub Login
@@ -117,6 +117,7 @@ In order to push all checkpoints directly to the Model Hub, we need to setup Git
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt install -y git-lfs
 git lfs install
+git config --global credential.helper store
 ```
 
 After that, Model Hub credentials need to be stored:
