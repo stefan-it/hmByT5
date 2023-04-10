@@ -61,7 +61,6 @@ from transformers import (
 from transformers.models.t5.modeling_flax_t5 import shift_tokens_right
 from transformers.utils import get_full_repo_name, send_example_telemetry
 
-
 MODEL_CONFIG_CLASSES = list(FLAX_MODEL_FOR_MASKED_LM_MAPPING.keys())
 MODEL_TYPES = tuple(conf.model_type for conf in MODEL_CONFIG_CLASSES)
 
@@ -194,7 +193,7 @@ class DataTrainingArguments:
     train_file: Optional[str] = field(default=None, metadata={"help": "The input training data file (a text file)."})
     validation_file: Optional[str] = field(
         default=None,
-        metadata={"help": "An optional input evaluation data file to evaluate the perplexity on (a text file)."},
+        metadata={"help": "Optional evaluation text files with language:path tuples delimited by ','"},
     )
     train_ref_file: Optional[str] = field(
         default=None,
@@ -490,6 +489,11 @@ def write_eval_metric(summary_writer, eval_metrics, step):
         summary_writer.scalar(f"eval_{metric_name}", value, step)
 
 
+def write_eval_metric_for_language(summary_writer, language, eval_metrics, step):
+    for metric_name, value in eval_metrics.items():
+        summary_writer.scalar(f"eval_{language}_{metric_name}", value, step)
+
+
 def main():
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
@@ -508,10 +512,10 @@ def main():
     send_example_telemetry("run_t5_mlm", model_args, data_args, framework="flax")
 
     if (
-        os.path.exists(training_args.output_dir)
-        and os.listdir(training_args.output_dir)
-        and training_args.do_train
-        and not training_args.overwrite_output_dir
+            os.path.exists(training_args.output_dir)
+            and os.listdir(training_args.output_dir)
+            and training_args.do_train
+            and not training_args.overwrite_output_dir
     ):
         raise ValueError(
             f"Output directory ({training_args.output_dir}) already exists and is not empty."
@@ -580,7 +584,15 @@ def main():
         if data_args.train_file is not None:
             data_files["train"] = data_args.train_file
         if data_args.validation_file is not None:
-            data_files["validation"] = data_args.validation_file
+
+            if "," not in data_args.validation_file:
+                # Fallback
+                data_files[f"default_validation"] = data_args.validation_file
+            else:
+                for lang_path_pair in data_args.validation_file.split(","):
+                    # E.g. en:/mnt/datasets/corpora/english.txt,fr:/mnt/datasets/corpora/french.txt
+                    language, path = lang_path_pair.split(":")
+                    data_files[f"{language}_validation"] = path
         extension = data_args.train_file.split(".")[-1]
         if extension == "txt":
             extension = "text"
@@ -653,7 +665,12 @@ def main():
     if training_args.do_train:
         column_names = datasets["train"].column_names
     else:
-        column_names = datasets["validation"].column_names
+        if data_args.validation_file is not None:
+            # Use first one
+            validation_dataset_name = [ds for ds in datasets.keys() if ds.endswith("_validation")][0]
+            column_names = datasets[f"{validation_dataset_name}"].column_names
+        else:
+            column_names = datasets["validation"].column_names
     text_column_name = "text" if "text" in column_names else column_names[0]
 
     max_seq_length = min(data_args.max_seq_length, tokenizer.model_max_length)
@@ -691,7 +708,7 @@ def main():
             total_length = (total_length // expanded_inputs_length) * expanded_inputs_length
         # Split by chunks of max_len.
         result = {
-            k: [t[i : i + expanded_inputs_length] for i in range(0, total_length, expanded_inputs_length)]
+            k: [t[i: i + expanded_inputs_length] for i in range(0, total_length, expanded_inputs_length)]
             for k, t in concatenated_examples.items()
         }
         return result
@@ -919,32 +936,36 @@ def main():
 
             if cur_step % training_args.eval_steps == 0 and cur_step > 0:
                 # ======================== Evaluating ==============================
-                num_eval_samples = len(tokenized_datasets["validation"])
-                # Avoid using jax.numpy here in case of TPU training
-                eval_samples_idx = np.arange(num_eval_samples)
-                eval_batch_idx = generate_batch_splits(eval_samples_idx, eval_batch_size, drop_last=False)
+                if data_args.validation_file is not None:
+                    validation_datasets = [ds for ds in tokenized_datasets.keys() if ds.endswith("_validation")]
+                    for validation_dataset in validation_datasets:
+                        language = validation_dataset.split("_")[0]
+                        num_eval_samples = len(tokenized_datasets[f"{validation_dataset}"])
+                        # Avoid using jax.numpy here in case of TPU training
+                        eval_samples_idx = np.arange(num_eval_samples)
+                        eval_batch_idx = generate_batch_splits(eval_samples_idx, eval_batch_size, drop_last=False)
 
-                eval_metrics = []
-                for i, batch_idx in enumerate(tqdm(eval_batch_idx, desc="Evaluating ...", position=2)):
-                    samples = [tokenized_datasets["validation"][int(idx)] for idx in batch_idx]
-                    model_inputs = data_collator(samples)
+                        eval_metrics = []
+                        for i, batch_idx in enumerate(tqdm(eval_batch_idx, desc=f"Evaluating ({language}) ...", position=2)):
+                            samples = [tokenized_datasets[f"{validation_dataset}"][int(idx)] for idx in batch_idx]
+                            model_inputs = data_collator(samples)
 
-                    # Model forward
-                    metrics = pad_shard_unpad(p_eval_step, static_return=True)(
-                        state.params, model_inputs.data, min_device_batch=per_device_eval_batch_size
-                    )
-                    eval_metrics.append(metrics)
+                            # Model forward
+                            metrics = pad_shard_unpad(p_eval_step, static_return=True)(
+                                state.params, model_inputs.data, min_device_batch=per_device_eval_batch_size
+                            )
+                            eval_metrics.append(metrics)
 
-                # get eval metrics
-                eval_metrics = get_metrics(eval_metrics)
-                eval_metrics = jax.tree_util.tree_map(jnp.mean, eval_metrics)
+                        # get eval metrics
+                        eval_metrics = get_metrics(eval_metrics)
+                        eval_metrics = jax.tree_util.tree_map(jnp.mean, eval_metrics)
 
-                # Update progress bar
-                epochs.write(f"Step... ({cur_step} | Loss: {eval_metrics['loss']}, Acc: {eval_metrics['accuracy']})")
+                        # Update progress bar
+                        epochs.write(f"Step... ({cur_step} | Language: {language} | Loss: {eval_metrics['loss']}, Acc: {eval_metrics['accuracy']})")
 
-                # Save metrics
-                if has_tensorboard and jax.process_index() == 0:
-                    write_eval_metric(summary_writer, eval_metrics, cur_step)
+                        # Save metrics
+                        if has_tensorboard and jax.process_index() == 0:
+                            write_eval_metric_for_language(summary_writer, language, eval_metrics, cur_step)
 
             if cur_step % training_args.save_steps == 0 and cur_step > 0:
                 # save checkpoint after each epoch and push checkpoint to the hub
@@ -957,31 +978,35 @@ def main():
 
     # Eval after training
     if training_args.do_eval:
-        num_eval_samples = len(tokenized_datasets["validation"])
-        # Avoid using jax.numpy here in case of TPU training
-        eval_samples_idx = np.arange(num_eval_samples)
-        eval_batch_idx = generate_batch_splits(eval_samples_idx, eval_batch_size, drop_last=False)
+        if data_args.validation_file is not None:
+            validation_datasets = [ds for ds in tokenized_datasets.keys() if ds.endswith("_validation")]
+            for validation_dataset in validation_datasets:
+                language = validation_dataset.split("_")[0]
+                num_eval_samples = len(tokenized_datasets[f"{validation_dataset}"])
+                # Avoid using jax.numpy here in case of TPU training
+                eval_samples_idx = np.arange(num_eval_samples)
+                eval_batch_idx = generate_batch_splits(eval_samples_idx, eval_batch_size, drop_last=False)
 
-        eval_metrics = []
-        for i, batch_idx in enumerate(tqdm(eval_batch_idx, desc="Evaluating ...", position=2)):
-            samples = [tokenized_datasets["validation"][int(idx)] for idx in batch_idx]
-            model_inputs = data_collator(samples)
+                eval_metrics = []
+                for i, batch_idx in enumerate(tqdm(eval_batch_idx, desc="Evaluating ({language}) ...", position=2)):
+                    samples = [tokenized_datasets[f"{validation_dataset}"][int(idx)] for idx in batch_idx]
+                    model_inputs = data_collator(samples)
 
-            # Model forward
-            metrics = pad_shard_unpad(p_eval_step, static_return=True)(
-                state.params, model_inputs.data, min_device_batch=per_device_eval_batch_size
-            )
-            eval_metrics.append(metrics)
+                    # Model forward
+                    metrics = pad_shard_unpad(p_eval_step, static_return=True)(
+                        state.params, model_inputs.data, min_device_batch=per_device_eval_batch_size
+                    )
+                    eval_metrics.append(metrics)
 
-        # get eval metrics
-        eval_metrics = get_metrics(eval_metrics)
-        eval_metrics = jax.tree_util.tree_map(lambda metric: jnp.mean(metric).item(), eval_metrics)
+                # get eval metrics
+                eval_metrics = get_metrics(eval_metrics)
+                eval_metrics = jax.tree_util.tree_map(lambda metric: jnp.mean(metric).item(), eval_metrics)
 
-        if jax.process_index() == 0:
-            eval_metrics = {f"eval_{metric_name}": value for metric_name, value in eval_metrics.items()}
-            path = os.path.join(training_args.output_dir, "eval_results.json")
-            with open(path, "w") as f:
-                json.dump(eval_metrics, f, indent=4, sort_keys=True)
+                if jax.process_index() == 0:
+                    eval_metrics = {f"eval_{metric_name}": value for metric_name, value in eval_metrics.items()}
+                    path = os.path.join(training_args.output_dir, f"eval_results_{language}.json")
+                    with open(path, "w") as f:
+                        json.dump(eval_metrics, f, indent=4, sort_keys=True)
 
 
 if __name__ == "__main__":
