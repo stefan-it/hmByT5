@@ -48,12 +48,12 @@ It turns out, that the results are not on-par with current SOTA on the English A
 [here](https://github.com/stefan-it/blbooks-lms#model-zoo). Thus, we continue experiments with the Hugging Face
 Transformers JAX/FLAX implementation to pretrain ByT5 models on TPU.
 
-Results with the Hugging Face Transformers JAX/FLAX implemention are really promising. We evaluated a hmByT5 model that
-was pretrained on English corpus for one epoch:
+Results with the Hugging Face Transformers JAX/FLAX implementation are really promising.
+We evaluated a hmByT5 model that was pretrained on English corpus for one epoch:
 
-| Hyper-param Configuration   | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.  |
-|-----------------------------|-------|-------|-------|-------|-------|-------|
-| `wsFalse-bs4-e10-lr0.00016` | 84.35 | 84.51 | 85.21 | 87.01 | 87.17 | 85.65 |
-| `wsFalse-bs4-e10-lr0.00015` | 85.78 | 85.03 | 86.40 | 85.48 | 84.47 | 85.43 |
-| `wsFalse-bs8-e10-lr0.00015` | 84.70 | 85.41 | 85.85 | 82.94 | 83.64 | 84.51 |
-| `wsFalse-bs8-e10-lr0.00016` | 83.23 | 85.95 | 85.41 | 83.02 | 84.16 | 84.35 |
+| Hyper-param Configuration                | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.  |
+|------------------------------------------|-------|-------|-------|-------|-------|-------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 84.35 | 84.51 | 85.21 | 87.01 | 87.17 | 85.65 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 85.78 | 85.03 | 86.40 | 85.48 | 84.47 | 85.43 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 84.70 | 85.41 | 85.85 | 82.94 | 83.64 | 84.51 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 83.23 | 85.95 | 85.41 | 83.02 | 84.16 | 84.35 |
