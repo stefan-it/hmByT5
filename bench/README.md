@@ -33,6 +33,12 @@ Example command for hyper-parameter search for the hmByT5 model on English part 
 $ python3 flair-fine-tuner.py ./configs/ajmc/hmbyt5-small-en.json
 ```
 
+To get a nice overview of the results (incl. best hyper-parameter configuration), just run the log parsing script:
+
+```bash
+$ python3 flair-log-parser.py "hipe2022-flert-fine-tune-ajmc-first-pooling/en-stefan-it/byt5-small-english-bs*"
+```
+
 # Preliminary Results
 
 We evaluated the hmByT5 model that was pretrained on English corpus for 200k steps:
