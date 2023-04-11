@@ -20,6 +20,11 @@ We use Flair to fine-tune hmByT5 on HIPE-2022 data. Details about the fine-tunin
 
 # **New**: Logbook
 
+* 11.04.2022: Experiment with pretraining an initial English model with JAX/FLAX implementation from Transformers has
+              finished. Results on AjMC are really promising and performance is ~1.65% better than with the original
+              ByT5 implementation, and the model was only pretrained for one epoch over the English corpus! Results
+              can be found [here](bench/README.md). The model is also available on the [Model Hub](https://huggingface.co/stefan-it/byt5-small-english).
+              We are now using this model as inital checkpoint to continue pretraining with the German corpus.
 * 09.04.2022: Preliminary experiments on English AjMC show, that the pretrained model on English corpus is not on-par
               with current SOTA. For that reason, we are trying the Hugging Face Transformers JAX/FLAX implementation
               to pretrain models. Details can be found in [this readme](hmbyt5-flax/README.md). Pretraining has already
