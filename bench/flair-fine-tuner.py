@@ -68,6 +68,7 @@ def run_experiment(seed: int, batch_size: int, epoch: int, learning_rate: float,
             fine_tune=True,
             subword_pooling=subword_pooling,
             use_context=context_size,
+            use_context_separator=False,
         )
     else:
         from byt5_embeddings import ByT5Embeddings
