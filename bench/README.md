@@ -63,3 +63,12 @@ We evaluated a hmByT5 model that was pretrained on English corpus for one epoch:
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 85.78 | 85.03 | 86.40 | 85.48 | 84.47 | 85.43 ± 0.66 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 84.70 | 85.41 | 85.85 | 82.94 | 83.64 | 84.51 ± 1.08 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 83.23 | 85.95 | 85.41 | 83.02 | 84.16 | 84.35 ± 1.16 |
+
+Results with JAX/FLAX implementation on the multilingual model (4GB of text per language) for one epoch:
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 84.66 | 84.10 | 81.79 | 83.45 | 83.47 | 83.49 ± 0.96 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 83.99 | 82.85 | 82.44 | 84.57 | 83.49 | 83.47 ± 0.76 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 81.96 | 82.05 | 82.52 | 82.13 | 83.08 | 82.35 ± 0.41 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 83.10 | 81.73 | 82.46 | 81.44 | 82.44 | 82.23 ± 0.59 |
