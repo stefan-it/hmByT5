@@ -159,3 +159,58 @@ python run_t5_mlm_flax.py \
 
 Checkpoints and the TensorBoard logs are automatically uploaded to the Model Hub, and can be found
 [here](https://huggingface.co/stefan-it/byt5-small-english).
+
+## German
+
+In the second experiment, we use the previously pretrained English model as initial checkpoint on pretrain on the
+German corpus - using the last learning rate and zero warmup steps:
+
+```bash
+python run_t5_mlm_flax.py \
+--model_name_or_path="/mnt/datasets/byt5-small-english" \
+--output_dir="/mnt/datasets/byt5-small-english-german" \
+--max_seq_length="1024" \
+--per_device_train_batch_size="16" \
+--per_device_eval_batch_size="16" \
+--learning_rate="4.955113013238588e-07" \
+--warmup_steps="0" \
+--logging_steps="500" \
+--save_steps="10000" \
+--eval_steps="2500" \
+--train_file="/mnt/datasets/corpora/german.txt" \
+--validation_file="/mnt/datasets/validation/de_validation.txt" \
+--hub_model_id="stefan-it/byt5-small-english-german" \
+--num_train_epochs="1" \
+--preprocessing_num_workers="16" \
+--push_to_hub
+
+```
+
+# Pretraining - Multilingual model on subcorpus
+
+In another experiment we sample 4B bytes (~4GB of text) from each corpora (and upsample Swedish and Finnish).
+We extend the JAX/FLAX pretraining script, so that is possible to perform evaluations on multiple validation datasets.
+Thus, we see a detailed accuracy and loss curve for each validation dataset for a certain language.
+The modified script can be found under [`run_t5_mlm_flax.py`](run_t5_mlm_flax.py).
+
+The pretraining was started for one epoch with:
+
+```bash
+python run_t5_mlm_flax.py \
+--model_name_or_path="google/byt5-small" \
+--output_dir="/mnt/datasets/byt5-small-multilingual-4g" \
+--max_seq_length="1024" \
+--per_device_train_batch_size="16" \
+--per_device_eval_batch_size="16" \
+--learning_rate="0.0003" \
+--warmup_steps="10000" \
+--logging_steps="500" \
+--save_steps="10000" \
+--eval_steps="2500" \
+--train_file="/mnt/datasets/corpus/combined.txt" \
+--validation_file="en:/mnt/datasets/validation/en_validation.txt,de:/mnt/datasets/validation/de_validation.txt,fr:/mnt/datasets/validation/fr_validation.txt,fi:/mnt/datasets/validation/fi_validation.txt,sv:/mnt/datasets/validation/sv_validation.txt,nl:/mnt/datasets/validation/nl_validation.txt" \
+--hub_model_id="stefan-it/byt5-small-multilingual-4g" \
+--num_train_epochs="1" \
+--preprocessing_num_workers="16" \
+--push_to_hub
+```
