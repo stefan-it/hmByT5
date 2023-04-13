@@ -976,6 +976,14 @@ def main():
                     if training_args.push_to_hub:
                         repo.push_to_hub(commit_message=f"Saving weights and logs of step {cur_step}", blocking=False)
 
+    # Save final model
+    if jax.process_index() == 0:
+        params = jax.device_get(jax.tree_util.tree_map(lambda x: x[0], state.params))
+        model.save_pretrained(training_args.output_dir, params=params)
+        tokenizer.save_pretrained(training_args.output_dir)
+        if training_args.push_to_hub:
+            repo.push_to_hub(commit_message=f"Saving weights and logs of final model", blocking=False)
+
     # Eval after training
     if training_args.do_eval:
         if data_args.validation_file is not None:
