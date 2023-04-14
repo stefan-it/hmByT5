@@ -38,7 +38,9 @@ To get a nice overview of the results (incl. best hyper-parameter configuration)
 $ python3 flair-log-parser.py "hipe2022-flert-fine-tune-ajmc-first-pooling/en-stefan-it/byt5-small-english-bs*"
 ```
 
-# Preliminary Results
+# Preliminary Results on AjMC English
+
+## Model: [`stefan-it/byt5-small-historic-multilingual`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual)
 
 We evaluated the hmByT5 model that was pretrained on English corpus for 200k steps:
 
@@ -53,6 +55,8 @@ It turns out, that the results are not on-par with current SOTA on the English A
 [here](https://github.com/stefan-it/blbooks-lms#model-zoo). Thus, we continue experiments with the Hugging Face
 Transformers JAX/FLAX implementation to pretrain ByT5 models on TPU.
 
+## Model: [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)
+
 Results with the Hugging Face Transformers JAX/FLAX implementation are really promising.
 We evaluated a hmByT5 model that was pretrained on English corpus for one epoch:
 
@@ -62,6 +66,13 @@ We evaluated a hmByT5 model that was pretrained on English corpus for one epoch:
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 85.78 | 85.03 | 86.40 | 85.48 | 84.47 | 85.43 ± 0.66 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 84.70 | 85.41 | 85.85 | 82.94 | 83.64 | 84.51 ± 1.08 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 83.23 | 85.95 | 85.41 | 83.02 | 84.16 | 84.35 ± 1.16 |
+
+## Model: [`stefan-it/byt5-small-english-german`](https://huggingface.co/stefan-it/byt5-small-english-german)
+
+We use the previous `stefan-it/byt5-small-english` model as initial checkpoint (incl. last learning rate and no
+warm-up steps) and continue pretraining on the German corpus for one epoch:
+
+## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
 
 Results with JAX/FLAX implementation on the multilingual model (4GB of text per language) for one epoch:
 
