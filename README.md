@@ -20,6 +20,11 @@ We use Flair to fine-tune hmByT5 on HIPE-2022 data. Details about the fine-tunin
 
 # **New**: Logbook
 
+* 14.04.2022: Experiment with the English+German model has completed. Experiments show, that continuing the pretraining
+              on another corpus (German) has no negative performance impact on English downstream task! On the contrary,
+              result on English AjMC corpus led to slightly better results. We continue this experiment and pretrain
+              on French corpus. Additionally, we pretrain the mulitlingual model (reduced 4GB of text for all languages)
+              for an additional epoch. Result can be seen [here](bench/README.md).
 * 11.04.2022: Experiment with pretraining an initial English model with JAX/FLAX implementation from Transformers has
               finished. Results on AjMC are really promising and performance is ~1.65% better than with the original
               ByT5 implementation, and the model was only pretrained for one epoch over the English corpus! Results
