@@ -79,6 +79,10 @@ warm-up steps) and continue pretraining on the German corpus for one epoch:
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   84.64 |   84.62 |   85.04 |   83.92 |   85.24 | 84.69 ± 0.45 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   84.5  |   84.62 |   83.41 |   85.21 |   83.55 | 84.26 ± 0.68 |
 
+## Model: [`stefan-it/byt5-small-english-german-french`](https://huggingface.co/stefan-it/byt5-small-english-german-french)
+
+We use the previous English+German model as initial checkpoint (incl. last learning rate and no warum-up steps) and 
+continue pretraining on the French corpus for one epoch. Pretraining is currently running.
 
 ## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
 
@@ -90,3 +94,8 @@ Results with JAX/FLAX implementation on the multilingual model (4GB of text per 
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 83.99 | 82.85 | 82.44 | 84.57 | 83.49 | 83.47 ± 0.76 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 81.96 | 82.05 | 82.52 | 82.13 | 83.08 | 82.35 ± 0.41 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 83.10 | 81.73 | 82.46 | 81.44 | 82.44 | 82.23 ± 0.59 |
+
+## Model: [`stefan-it/byt5-small-multilingual-4g-2e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-2e)
+
+We use the previous 4GB model as initial checkpoint (incl. last learning rate and no warum-up steps) and 
+continue pretraining on the same corpus for an additional epoch. Pretraining is currently running.
