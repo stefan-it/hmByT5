@@ -72,6 +72,14 @@ We evaluated a hmByT5 model that was pretrained on English corpus for one epoch:
 We use the previous `stefan-it/byt5-small-english` model as initial checkpoint (incl. last learning rate and no
 warm-up steps) and continue pretraining on the German corpus for one epoch:
 
+| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------------------------|---------|---------|---------|---------|---------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   85.37 |   85.75 |   86.7  |   86.26 |   84.62 | 85.74 ± 0.72 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   84.97 |   85.31 |   85.58 |   84.33 |   85.27 | 85.09 ± 0.43 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   84.64 |   84.62 |   85.04 |   83.92 |   85.24 | 84.69 ± 0.45 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   84.5  |   84.62 |   83.41 |   85.21 |   83.55 | 84.26 ± 0.68 |
+
+
 ## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
 
 Results with JAX/FLAX implementation on the multilingual model (4GB of text per language) for one epoch:
