@@ -99,3 +99,10 @@ Results with JAX/FLAX implementation on the multilingual model (4GB of text per 
 
 We use the previous 4GB model as initial checkpoint (incl. last learning rate and no warum-up steps) and 
 continue pretraining on the same corpus for an additional epoch. Pretraining is currently running.
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 84.19 | 83.62 | 84.88 | 83.47 | 83.16 | 83.86 ± 0.61 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 83.57 | 83.59 | 82.37 | 85.58 | 81.73 | 83.37 ± 1.32 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 82.53 | 82.18 | 81.88 | 84.14 | 82.64 | 82.67 ± 0.78 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 82.44 | 79.4  | 83.04 | 81.91 | 82.49 | 81.86 ± 1.28 |
