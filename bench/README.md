@@ -82,7 +82,7 @@ warm-up steps) and continue pretraining on the German corpus for one epoch:
 ## Model: [`stefan-it/byt5-small-english-german-french`](https://huggingface.co/stefan-it/byt5-small-english-german-french)
 
 We use the previous English+German model as initial checkpoint (incl. last learning rate and no warum-up steps) and 
-continue pretraining on the French corpus for one epoch. Pretraining is currently running.
+continue pretraining on the French corpus for one epoch.
 
 ## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
 
@@ -106,3 +106,8 @@ continue pretraining on the same corpus for an additional epoch. Pretraining is 
 | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 83.57 | 83.59 | 82.37 | 85.58 | 81.73 | 83.37 ± 1.32 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 82.53 | 82.18 | 81.88 | 84.14 | 82.64 | 82.67 ± 0.78 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 82.44 | 79.4  | 83.04 | 81.91 | 82.49 | 81.86 ± 1.28 |
+
+## Model: [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)
+
+We use the previous 4GB model as initial checkpoint (incl. last learning rate and no warum-up steps) and 
+continue pretraining on the same corpus for an additional epoch.
