@@ -117,4 +117,12 @@ continue pretraining on the same corpus for an additional epoch. Pretraining is 
 ## Model: [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)
 
 We use the previous 4GB model as initial checkpoint (incl. last learning rate and no warum-up steps) and 
-continue pretraining on the same corpus for an additional epoch.
+continue pretraining on the same corpus for an additional epoch:
+
+| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------------------------|---------|---------|---------|---------|---------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   84.07 |   81.92 |   84.63 |   84.04 |   82.77 | 83.49 ± 0.99 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   84.27 |   84.06 |   84.71 |   82.11 |   80.85 | 83.2 ± 1.47  |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   82.16 |   81.3  |   81.73 |   84.63 |   81.75 | 82.31 ± 1.19 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   80.92 |   81.54 |   83.35 |   82.94 |   82.09 | 82.17 ± 0.89 |
+
