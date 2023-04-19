@@ -8,9 +8,7 @@ All models are fine-tuned on A10 (24GB) instances from [Lambda Cloud](https://la
 Flair:
 
 ```bash
-$ git clone -b support_byt5 https://github.com/flairNLP/flair.git
-$ cd flair
-$ pip3 install -e .
+$ git clone -b support_byt5 https://github.com/flairNLP/flair.git && cd flair && pip3 install -e .
 $ cd
 ```
 
