@@ -94,12 +94,24 @@ continue pretraining on the French corpus for one epoch:
 We use the previous English+German+French model as initial checkpoint (incl. last learning rate and no warm-up steps) and 
 continue pretraining on the Finnish corpus for one epoch:
 
-| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
-|------------------------------------------|---------|---------|---------|---------|---------|--------------|
-| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   84.61 |   87.35 |   84.06 |   84.87 |   85.61 | 85.30 ± 1.14 |
-| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   86.4  |   84.51 |   83.86 |   84.66 |   85.48 | 84.98 ± 0.88 |
-| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   84.73 |   84.83 |   84.66 |   84.5  |   85.44 | 84.83 ± 0.32 |
-| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   84.66 |   85.37 |   85.2  |   82.96 |   84.91 | 84.62 ± 0.86 |
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 84.61 | 87.35 | 84.06 | 84.87 | 85.61 | 85.30 ± 1.14 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 86.4  | 84.51 | 83.86 | 84.66 | 85.48 | 84.98 ± 0.88 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 84.73 | 84.83 | 84.66 | 84.5  | 85.44 | 84.83 ± 0.32 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 84.66 | 85.37 | 85.2  | 82.96 | 84.91 | 84.62 ± 0.86 |
+
+## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish)
+
+We use the previous English+German+French+Finnish model as initial checkpoint
+(incl. last learning rate and no warm-up steps) and continue pretraining on the Swedish corpus for one epoch:
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 84.21 | 86.02 | 85.85 | 86.19 | 84.75 | 85.4 ± 0.78  |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 85.95 | 84.94 | 84.7  | 85.41 | 84.59 | 85.12 ± 0.5  |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 84.19 | 85.03 | 84.25 | 86.22 | 85.31 | 85.0 ± 0.75  |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 84.65 | 84.26 | 83.92 | 85.61 | 83.96 | 84.48 ± 0.62 |
 
 ## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
 
