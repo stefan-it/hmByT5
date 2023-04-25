@@ -19,7 +19,7 @@ from flair import set_seed
 from flair.models import SequenceTagger
 from flair.trainers import ModelTrainer
 
-from utils import prepare_ajmc_corpus
+from utils import prepare_ajmc_corpus, prepare_clef_2020_corpus, prepare_newseye_fi_sv_corpus
 
 logger = logging.getLogger("flair")
 logger.setLevel(level="INFO")
@@ -41,10 +41,15 @@ def run_experiment(seed: int, batch_size: int, epoch: int, learning_rate: float,
     for dataset in hipe_datasets:
         dataset_name, language = dataset.split("/")
 
+        # E.g. topres19th needs no special preprocessing
         preproc_fn = None
 
         if dataset_name == "ajmc":
             preproc_fn = prepare_ajmc_corpus
+        elif dataset_name == "hipe2020":
+            preproc_fn = prepare_clef_2020_corpus
+        elif dataset_name == "newseye":
+            preproc_fn = prepare_newseye_fi_sv_corpus
 
         corpus_list.append(NER_HIPE_2022(dataset_name=dataset_name, language=language, preproc_fn=preproc_fn, add_document_separator=True))
 
