@@ -195,8 +195,6 @@ continue pretraining on the same corpus for an additional epoch:
 
 ## AjMC German
 
-## Model: [`stefan-it/byt5-small-historic-multilingual`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual)
-
 ## Model: [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)
 
 ## Model: [`stefan-it/byt5-small-english-german`](https://huggingface.co/stefan-it/byt5-small-english-german)
@@ -216,8 +214,6 @@ continue pretraining on the same corpus for an additional epoch:
 ## Model: [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)
 
 ## AjMC French
-
-## Model: [`stefan-it/byt5-small-historic-multilingual`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual)
 
 ## Model: [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)
 
