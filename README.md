@@ -20,6 +20,12 @@ We use Flair to fine-tune hmByT5 on HIPE-2022 data. Details about the fine-tunin
 
 # **New**: Logbook
 
+* 25.04.2022: Experiments with continued pretraining are completed. It turns out, that the strategy worked for
+              English+German+French. However, after using Finnish the eval results for all following languages (Finnish,
+              Swedish and Dutch) to really worse. Training loss is also very high. So this strategy seems to be not
+              working with the used hyper-parameters (adjusted learning rate). Additionally, on 18th of April we started
+              to pretrain a multilingual model on the complete 165GB training corpus. Model is available
+              [here](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax) and still training.
 * 14.04.2022: Experiment with the English+German model has completed. Experiments show, that continuing the pretraining
               on another corpus (German) has no negative performance impact on English downstream task! On the contrary,
               result on English AjMC corpus led to slightly better results. We continue this experiment and pretrain
