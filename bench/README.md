@@ -38,8 +38,8 @@ $ python3 flair-log-parser.py "hipe2022-flert-fine-tune-ajmc-first-pooling/en-st
 
 # Small Benchmark
 
-We test our pretrained language models on various datasets from HIPE-2020 and HIPE-2022. The following table shows
-an overview of used datasets.
+We test our pretrained language models on various datasets from HIPE-2020, HIPE-2022 and Europeana. The following table
+shows an overview of used datasets.
 
 | Language | Dataset                                                                                          | Additional Dataset                                                                                     |
 |----------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
