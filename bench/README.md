@@ -27,7 +27,7 @@ All configurations can be found under the `configs/ajmc` folder in this reposito
 Example command for hyper-parameter search for the hmByT5 model on English part of AjMC corpus:
 
 ```bash
-$ python3 flair-fine-tuner.py ./configs/ajmc/hmbyt5-small-en.json
+$ python3 flair-fine-tuner.py ./configs/ajmc/en/hmbyt5-small-flax-en.json
 ```
 
 To get a nice overview of the results (incl. best hyper-parameter configuration), just run the log parsing script:
