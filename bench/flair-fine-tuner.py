@@ -9,7 +9,7 @@ import torch
 from typing import List
 
 from flair.data import MultiCorpus
-from flair.datasets import ColumnCorpus, NER_HIPE_2022
+from flair.datasets import ColumnCorpus, NER_HIPE_2022, NER_ICDAR_EUROPEANA
 from flair.embeddings import (
     TokenEmbeddings,
     StackedEmbeddings,
@@ -51,7 +51,10 @@ def run_experiment(seed: int, batch_size: int, epoch: int, learning_rate: float,
         elif dataset_name == "newseye":
             preproc_fn = prepare_newseye_fi_sv_corpus
 
-        corpus_list.append(NER_HIPE_2022(dataset_name=dataset_name, language=language, preproc_fn=preproc_fn, add_document_separator=True))
+        if dataset_name == "icdar":
+            corpus_list.append(NER_ICDAR_EUROPEANA(language=language))
+        else:
+            corpus_list.append(NER_HIPE_2022(dataset_name=dataset_name, language=language, preproc_fn=preproc_fn, add_document_separator=True))
 
     if context_size == 0:
         context_size = False
