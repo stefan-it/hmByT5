@@ -193,4 +193,48 @@ continue pretraining on the same corpus for an additional epoch:
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   82.16 |   81.3  |   81.73 |   84.63 |   81.75 | 82.31 ± 1.19 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   80.92 |   81.54 |   83.35 |   82.94 |   82.09 | 82.17 ± 0.89 |
 
+## AjMC German
+
+## Model: [`stefan-it/byt5-small-historic-multilingual`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual)
+
+## Model: [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)
+
+## Model: [`stefan-it/byt5-small-english-german`](https://huggingface.co/stefan-it/byt5-small-english-german)
+
+## Model: [`stefan-it/byt5-small-english-german-french`](https://huggingface.co/stefan-it/byt5-small-english-german-french)
+
+## Model: [`stefan-it/byt5-small-english-german-french-finnish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish)
+
+## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish)
+
+## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch)
+
+## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
+
+## Model: [`stefan-it/byt5-small-multilingual-4g-2e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-2e)
+
+## Model: [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)
+
+## AjMC French
+
+## Model: [`stefan-it/byt5-small-historic-multilingual`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual)
+
+## Model: [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)
+
+## Model: [`stefan-it/byt5-small-english-german`](https://huggingface.co/stefan-it/byt5-small-english-german)
+
+## Model: [`stefan-it/byt5-small-english-german-french`](https://huggingface.co/stefan-it/byt5-small-english-german-french)
+
+## Model: [`stefan-it/byt5-small-english-german-french-finnish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish)
+
+## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish)
+
+## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch)
+
+## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
+
+## Model: [`stefan-it/byt5-small-multilingual-4g-2e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-2e)
+
+## Model: [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)
+
 </details>
