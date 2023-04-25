@@ -160,3 +160,32 @@ continue pretraining on the same corpus for an additional epoch:
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   82.16 |   81.3  |   81.73 |   84.63 |   81.75 | 82.31 ± 1.19 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   80.92 |   81.54 |   83.35 |   82.94 |   82.09 | 82.17 ± 0.89 |
 
+# Small Benchmark
+
+We test our pretrained language models on various datasets from HIPE-2020 and HIPE-2022. The following table shows
+an overview of used datasets.
+
+| Language | Dataset                                                                                          | Additional Dataset                                                                                     |
+|----------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| English  | [AjMC](https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-ajmc.md)       | [Topres19th](https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-topres19th.md) |
+| German   | [AjMC](https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-ajmc.md)       | [HIPE-2020](https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-hipe2020.md)    |
+| French   | [AjMC](https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-ajmc.md)       | [HIPE-2020](https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-hipe2020.md)    |
+| Finnish  | [NewsEye](https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-newseye.md) | -                                                                                                      |
+| Swedish  | [NewsEye](https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-newseye.md) | -                                                                                                      |
+| Dutch    | [ICDAR-Europeana](https://github.com/stefan-it/historic-domain-adaptation-icdar)                 | -                                                                                                      |
+
+## Results
+
+The following table shows performance (averaged F1-score on development set, 5 runs) for all models:
+
+| Model                                                                                                                                                         | Best Configuration                       | English AjMC | English Topres19th | German AjMC | German HIPE-2020 | French AjMC | French HIPE-2020 | Finnish NewsEye | Swedish NewsEye | Dutch ICDAR | Avg. |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|--------------|--------------------|-------------|------------------|-------------|------------------|-----------------|-----------------|-------------|------|
+| [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)                                                                         | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 84.01 ± 0.50 |                    |             |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-english-german`](https://huggingface.co/stefan-it/byt5-small-english-german)                                                           | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 85.74 ± 0.72 |                    |             |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-english-german-french`](https://huggingface.co/stefan-it/byt5-small-english-german-french)                                             | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 85.61 ± 0.96 |                    |             |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-english-german-french-finnish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish)                             | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 85.30 ± 1.14 |                    |             |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-english-german-french-finnish-swedish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish)             | `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 85.40 ± 0.78 |                    |             |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch) | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 85.51 ± 0.68 |                    |             |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)                                                         | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 83.49 ± 0.96 |                    |             |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-multilingual-4g-2e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-2e)                                                   | `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 83.86 ± 0.61 |                    |             |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)                                                   | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 83.49 ± 0.99 |                    |             |                  |             |                  |                 |                 |             |      |
