@@ -113,6 +113,18 @@ We use the previous English+German+French+Finnish model as initial checkpoint
 | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 84.19 | 85.03 | 84.25 | 86.22 | 85.31 | 85.0 ± 0.75  |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 84.65 | 84.26 | 83.92 | 85.61 | 83.96 | 84.48 ± 0.62 |
 
+## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch)
+
+We use the previous English+German+French+Finnish+Swedish model as initial checkpoint
+(incl. last learning rate and no warm-up steps) and continue pretraining on the Dutch corpus for one epoch:
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 84.35 | 85.34 | 85.71 | 86.46 | 85.68 | 85.51 ± 0.68 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 86.02 | 86.12 | 84.16 | 84.62 | 86.23 | 85.43 ± 0.86 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 84.36 | 84.93 | 84.8  | 84.46 | 85.55 | 84.82 ± 0.42 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 84.67 | 84.59 | 84.56 | 84.63 | 85    | 84.69 ± 0.16 |
+
 ## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
 
 Results with JAX/FLAX implementation on the multilingual model (4GB of text per language) for one epoch:
