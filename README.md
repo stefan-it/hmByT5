@@ -1,6 +1,6 @@
 # hmByT5
 
-Upcoming Historic Multilingual ByT5 Model. It covers the following languages:
+Upcoming Historic Multilingual and Monolingual ByT5 Models. Following languages will be covered:
 
 * English (British Library Corpus - Books)
 * German (Europeana Newspaper)
@@ -8,15 +8,18 @@ Upcoming Historic Multilingual ByT5 Model. It covers the following languages:
 * Finnish (Europeana Newspaper)
 * Swedish (Europeana Newspaper)
 * Dutch (Delpher Corpus)
+* More?
 
 # Pretraining
 
-We pretrain hmByT5 on a v3-32 TPU Pod. Details about the training can be found [here](hmbyt5/README.md). Additionally,
-we perform pretraining using Transformers JAX/FLAX example, details can be found [here](hmbyt5-flax/README.md).
+We pretrain hmByT5 on v3-8 and v3-32 TPUs. Details about the training can be found [here](hmbyt5/README.md).
+Additionally, we perform pretraining using Transformers JAX/FLAX example, details can be found
+[here](hmbyt5-flax/README.md).
 
 # Evaluation on Downstream Tasks (NER)
 
-We use Flair to fine-tune hmByT5 on HIPE-2022 data. Details about the fine-tuning can be found [here](bench/README.md).
+We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine-tuning can be found
+[here](bench/README.md).
 
 # **New**: Logbook
 
