@@ -55,7 +55,7 @@ We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine
 # Planned/upcoming stuff
 
 * Monolingual Dutch model (for comparison with [Delpher LM](https://github.com/stefan-it/delpher-lm)). Pretraining is
-  currently running, see [here]()https://huggingface.co/stefan-it/byt5-small-historic-dutch.
+  currently running, see [here](https://huggingface.co/stefan-it/byt5-small-historic-dutch).
 * Hyper-parameter experiments: For example pretraining English model with different learning rates for a fixed number of
   hours to compare performance (both training and eval loss).
 * Next larger architecture: ByT5 Base Model (starting with English).
