@@ -59,9 +59,9 @@ The following table shows performance (averaged F1-score on development set, 5 r
 | [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)                                                                         | 84.01 ± 0.50 |                    | 87.27 ± 0.50 |                  |             |                  |                 |                 |             |      |
 | [`stefan-it/byt5-small-english-german`](https://huggingface.co/stefan-it/byt5-small-english-german)                                                           | 85.74 ± 0.72 |                    | 87.45 ± 0.67 |                  |             |                  |                 |                 |             |      |
 | [`stefan-it/byt5-small-english-german-french`](https://huggingface.co/stefan-it/byt5-small-english-german-french)                                             | 85.61 ± 0.96 |                    | 87.24 ± 0.76 |                  |             |                  |                 |                 |             |      |
-| [`stefan-it/byt5-small-english-german-french-finnish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish)                             | 85.30 ± 1.14 |                    |              |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-english-german-french-finnish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish)                             | 85.30 ± 1.14 |                    | 87.37 ± 0.53 |                  |             |                  |                 |                 |             |      |
 | [`stefan-it/byt5-small-english-german-french-finnish-swedish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish)             | 85.40 ± 0.78 |                    | 87.12 ± 0.19 |                  |             |                  |                 |                 |             |      |
-| [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch) | 85.51 ± 0.68 |                    |              |                  |             |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch) | 85.51 ± 0.68 |                    | 87.58 ± 0.39 |                  |             |                  |                 |                 |             |      |
 | [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)                                                         | 83.49 ± 0.96 |                    | 87.65 ± 0.63 |                  |             |                  |                 |                 |             |      |
 | [`stefan-it/byt5-small-multilingual-4g-2e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-2e)                                                   | 83.86 ± 0.61 |                    |              |                  |             |                  |                 |                 |             |      |
 | [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)                                                   | 83.49 ± 0.99 |                    | 87.38 ± 0.53 |                  |             |                  |                 |                 |             |      |
@@ -225,6 +225,13 @@ continue pretraining on the same corpus for an additional epoch:
 
 ## Model: [`stefan-it/byt5-small-english-german-french-finnish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish)
 
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 87.71 | 86.98 | 87.08 | 86.85 | 88.25 | 87.37 ± 0.53 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 87.19 | 86.78 | 87.52 | 87.25 | 87.15 | 87.18 ± 0.24 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 86.19 | 86.23 | 86.47 | 87.15 | 86.91 | 86.59 ± 0.38 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 85.51 | 86.29 | 86.05 | 85.27 | 86.8  | 85.98 ± 0.55 |
+
 ## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish)
 
 | Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
@@ -235,6 +242,13 @@ continue pretraining on the same corpus for an additional epoch:
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 85.85 | 85.47 | 86.54 | 85.85 | 84.1  | 85.56 ± 0.81 |
 
 ## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch)
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 87.66 | 88.19 | 87.56 | 86.95 | 87.53 | 87.58 ± 0.39 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 87.66 | 86.84 | 87.5  | 86.53 | 87.23 | 87.15 ± 0.42 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 86.33 | 87.19 | 87.85 | 86.9  | 86.81 | 87.02 ± 0.5  |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 86.34 | 84.71 | 85.75 | 85.89 | 85.85 | 85.71 ± 0.54 |
 
 ## Model: [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)
 
