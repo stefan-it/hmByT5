@@ -60,6 +60,8 @@ We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine
   hours to compare performance (both training and eval loss).
 * Next larger architecture: ByT5 Base Model (starting with English).
 * Adding another language, for example Norwegian as proposed [here](https://github.com/stefan-it/hmByT5/issues/1).
+* In current experiments, we use `mean_noise_span_length=3` as default parameter, whereas default ByT5 paper suggests
+  using a value of [20](https://github.com/stefan-it/hmByT5/blob/main/hmbyt5/configs/0_english_operative_config.gin#L17).
 
 # Acknowledgements
 
