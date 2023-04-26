@@ -52,6 +52,15 @@ We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine
               [TPU Research Cloud](https://sites.research.google/trc/about/) (TRC) program. Plan is to pretrain on the
               English corpus for 200k steps and use the original ByT5 Small model as init checkpoint.
 
+# Planned/upcoming stuff
+
+* Monolingual Dutch model (for comparison with [Delpher LM](https://github.com/stefan-it/delpher-lm)). Pretraining is
+  currently running, see [here]()https://huggingface.co/stefan-it/byt5-small-historic-dutch.
+* Hyper-parameter experiments: For example pretraining English model with different learning rates for a fixed number of
+  hours to compare performance (both training and eval loss).
+* Next larger architecture: ByT5 Base Model (starting with English).
+* Adding another language, for example Norwegian as proposed [here](https://github.com/stefan-it/hmByT5/issues/1).
+
 # Acknowledgements
 
 Research supported with Cloud TPUs from Google's [TPU Research Cloud](https://sites.research.google/trc/about/) (TRC).
