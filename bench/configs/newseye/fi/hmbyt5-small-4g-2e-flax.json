@@ -1,6 +1,6 @@
 {
     "seeds": [1,2,3,4,5],
-    "batch_sizes": [4,8],
+    "batch_sizes": [4],
     "hf_model": "stefan-it/byt5-small-multilingual-4g-2e",
     "context_size": 0,
     "epochs": [10],
