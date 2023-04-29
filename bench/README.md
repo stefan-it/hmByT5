@@ -65,6 +65,7 @@ The following table shows performance (averaged F1-score on development set, 5 r
 | [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)                                                         | 83.49 ± 0.96 |                    | 87.65 ± 0.63 |                  | 84.16 ± 0.90 |                  |                 |                 |             |      |
 | [`stefan-it/byt5-small-multilingual-4g-2e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-2e)                                                   | 83.86 ± 0.61 |                    | 87.54 ± 0.19 |                  | 84.29 ± 0.41 |                  |                 |                 |             |      |
 | [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)                                                   | 83.49 ± 0.99 |                    | 87.38 ± 0.53 |                  | 84.30 ± 0.51 |                  |                 |                 |             |      |
+| [`stefan-it/byt5-small-historic-multilingual-flax`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax)                                   | 83.28 ± 1.67 |                    | 86.98 ± 0.71 |                  | 83.49 ± 1.06 |                  |                 |                 |             |      |
 
 <details>
 <summary>Detailed results</summary>
@@ -193,6 +194,17 @@ continue pretraining on the same corpus for an additional epoch:
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 82.16 | 81.3  | 81.73 | 84.63 | 81.75 | 82.31 ± 1.19 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 80.92 | 81.54 | 83.35 | 82.94 | 82.09 | 82.17 ± 0.89 |
 
+## Model: [`stefan-it/byt5-small-historic-multilingual-flax`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax)
+
+Results with JAX/FLAX implementation on the multilingual model for 560k steps (0.5 epochs):
+
+| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------------------------|---------|---------|---------|---------|---------|--------------|
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   85.04 |   80.71 |   82.57 |   82.92 |   85.17 | 83.28 ± 1.67 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   83.7  |   82.12 |   83.12 |   84.16 |   83.1  | 83.24 ± 0.69 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   83.83 |   83.76 |   82.64 |   84.1  |   81.49 | 83.16 ± 0.97 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   78.65 |   83.69 |   80.97 |   84.02 |   82.21 | 81.91 ± 1.96 |
+
 ## AjMC German
 
 ## Model: [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)
@@ -277,6 +289,16 @@ continue pretraining on the same corpus for an additional epoch:
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 85.89 | 86.67 | 85.58 | 86.53 | 85.61 | 86.06 ± 0.46 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 86.02 | 85.61 | 85.99 | 86.16 | 85.75 | 85.91 ± 0.2  |
 
+## Model: [`stefan-it/byt5-small-historic-multilingual-flax`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax)
+
+Results with JAX/FLAX implementation on the multilingual model for 560k steps (0.5 epochs):
+
+| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------------------------|---------|---------|---------|---------|---------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   87.3  |   88.16 |   86.63 |   86.74 |   86.06 | 86.98 ± 0.71 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   85.92 |   86.78 |   85.88 |   87.22 |   86.4  | 86.44 ± 0.51 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   85.31 |   85.04 |   84.83 |   85.68 |   84.9  | 85.15 ± 0.31 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   85.71 |   84.86 |   80.23 |   85.89 |   85.68 | 84.47 ± 2.15 |
 
 ## AjMC French
 
@@ -361,5 +383,17 @@ continue pretraining on the same corpus for an additional epoch:
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   84.47 |   83.15 |   84.17 |   83.73 |   82.85 | 83.67 ± 0.61 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   83.62 |   81.91 |   81.48 |   82.84 |   82.12 | 82.39 ± 0.75 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   83.04 |   81.24 |   81.64 |   82.43 |   82.19 | 82.11 ± 0.62 |
+
+## Model: [`stefan-it/byt5-small-historic-multilingual-flax`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax)
+
+Results with JAX/FLAX implementation on the multilingual model for 560k steps (0.5 epochs):
+
+| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------------------------|---------|---------|---------|---------|---------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   84.11 |   83.08 |   84.96 |   83.48 |   81.8  | 83.49 ± 1.06 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   83.31 |   81.64 |   82.12 |   82.91 |   83.42 | 82.68 ± 0.69 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   83.46 |   81.55 |   81.84 |   81.67 |   82.53 | 82.21 ± 0.71 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   81.44 |   82.53 |   80.64 |   83.29 |   82.27 | 82.03 ± 0.91 |
+
 
 </details>
