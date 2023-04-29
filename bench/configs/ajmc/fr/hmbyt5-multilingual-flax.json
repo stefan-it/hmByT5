@@ -1,0 +1,12 @@
+{
+    "seeds": [1,2,3,4,5],
+    "batch_sizes": [4,8],
+    "hf_model": "stefan-it/byt5-small-historic-multilingual-flax",
+    "context_size": 0,
+    "epochs": [10],
+    "learning_rates": [0.00015, 0.00016],
+    "subword_poolings": ["first"],
+    "hipe_datasets": ["ajmc/fr"],
+    "byt5_embedding_implementation": "own",
+    "cuda": "0"
+}
