@@ -54,18 +54,18 @@ shows an overview of used datasets.
 
 The following table shows performance (averaged F1-score on development set, 5 runs) for all models:
 
-| Model                                                                                                                                                         | English AjMC | English Topres19th | German AjMC  | German HIPE-2020 | French AjMC  | French HIPE-2020 | Finnish NewsEye | Swedish NewsEye | Dutch ICDAR | Avg. |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|--------------|------------------|--------------|------------------|-----------------|-----------------|-------------|------|
-| [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)                                                                         | 85.65 ± 1.21 |                    | 87.27 ± 0.50 |                  | 84.44 ± 0.79 |                  |                 |                 |             | -    |
-| [`stefan-it/byt5-small-english-german`](https://huggingface.co/stefan-it/byt5-small-english-german)                                                           | 85.74 ± 0.72 |                    | 87.45 ± 0.67 |                  | 84.23 ± 0.65 |                  |                 |                 |             | -    |
-| [`stefan-it/byt5-small-english-german-french`](https://huggingface.co/stefan-it/byt5-small-english-german-french)                                             | 85.61 ± 0.96 |                    | 87.24 ± 0.76 |                  | 84.39 ± 0.68 |                  |                 |                 |             | -    |
-| [`stefan-it/byt5-small-english-german-french-finnish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish)                             | 85.30 ± 1.14 |                    | 87.37 ± 0.53 |                  | 84.12 ± 0.42 |                  |                 |                 |             | -    |
-| [`stefan-it/byt5-small-english-german-french-finnish-swedish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish)             | 85.40 ± 0.78 |                    | 87.12 ± 0.19 |                  | 84.41 ± 0.34 |                  |                 |                 |             | -    |
-| [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch) | 85.51 ± 0.68 |                    | 87.58 ± 0.39 |                  | 84.39 ± 0.83 |                  | 55.46 ± 1.99    | 73.38 ± 2.45    |             | -    |
-| [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)                                                         | 83.49 ± 0.96 |                    | 87.65 ± 0.63 |                  | 84.16 ± 0.90 |                  |                 |                 |             | -    |
-| [`stefan-it/byt5-small-multilingual-4g-2e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-2e)                                                   | 83.86 ± 0.61 |                    | 87.54 ± 0.19 |                  | 84.29 ± 0.41 |                  |                 |                 |             | -    |
-| [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)                                                   | 83.49 ± 0.99 |                    | 87.38 ± 0.53 |                  | 84.30 ± 0.51 |                  |                 |                 |             | -    |
-| [`stefan-it/byt5-small-historic-multilingual-flax`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax)                                   | 83.28 ± 1.67 |                    | 86.98 ± 0.71 |                  | 83.49 ± 1.06 |                  | 76.96 ± 1.58    | 78.80 ± 1.89    |             | -    |
+| Model                                                                                                                                                         | English AjMC | English Topres19th | German AjMC  | German HIPE-2020 | French AjMC  | French HIPE-2020 | Finnish NewsEye | Swedish NewsEye | Dutch ICDAR  | Avg. |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------------|--------------|------------------|--------------|------------------|-----------------|-----------------|--------------|------|
+| [`stefan-it/byt5-small-english`](https://huggingface.co/stefan-it/byt5-small-english)                                                                         | 85.65 ± 1.21 |                    | 87.27 ± 0.50 |                  | 84.44 ± 0.79 |                  |                 |                 |              | -    |
+| [`stefan-it/byt5-small-english-german`](https://huggingface.co/stefan-it/byt5-small-english-german)                                                           | 85.74 ± 0.72 |                    | 87.45 ± 0.67 |                  | 84.23 ± 0.65 |                  |                 |                 |              | -    |
+| [`stefan-it/byt5-small-english-german-french`](https://huggingface.co/stefan-it/byt5-small-english-german-french)                                             | 85.61 ± 0.96 |                    | 87.24 ± 0.76 |                  | 84.39 ± 0.68 |                  |                 |                 |              | -    |
+| [`stefan-it/byt5-small-english-german-french-finnish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish)                             | 85.30 ± 1.14 |                    | 87.37 ± 0.53 |                  | 84.12 ± 0.42 |                  |                 |                 |              | -    |
+| [`stefan-it/byt5-small-english-german-french-finnish-swedish`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish)             | 85.40 ± 0.78 |                    | 87.12 ± 0.19 |                  | 84.41 ± 0.34 |                  |                 |                 |              | -    |
+| [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch) | 85.51 ± 0.68 |                    | 87.58 ± 0.39 |                  | 84.39 ± 0.83 |                  | 55.46 ± 1.99    | 73.38 ± 2.45    | 84.80 ± 0.44 | -    |
+| [`stefan-it/byt5-small-multilingual-4g`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g)                                                         | 83.49 ± 0.96 |                    | 87.65 ± 0.63 |                  | 84.16 ± 0.90 |                  |                 |                 |              | -    |
+| [`stefan-it/byt5-small-multilingual-4g-2e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-2e)                                                   | 83.86 ± 0.61 |                    | 87.54 ± 0.19 |                  | 84.29 ± 0.41 |                  |                 |                 |              | -    |
+| [`stefan-it/byt5-small-multilingual-4g-3e`](https://huggingface.co/stefan-it/byt5-small-multilingual-4g-3e)                                                   | 83.49 ± 0.99 |                    | 87.38 ± 0.53 |                  | 84.30 ± 0.51 |                  |                 |                 |              | -    |
+| [`stefan-it/byt5-small-historic-multilingual-flax`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax)                                   | 83.28 ± 1.67 |                    | 86.98 ± 0.71 |                  | 83.49 ± 1.06 |                  | 76.96 ± 1.58    | 78.80 ± 1.89    | 86.47 ± 0.79 | -    |
 
 <details>
 <summary>Detailed results</summary>
@@ -434,5 +434,25 @@ Results with JAX/FLAX implementation on the multilingual model for 560k steps (0
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   74.5  |   69.98 |   73.68 |   68.94 |   75.14 | 72.45 ± 2.5  |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   61.96 |   61.34 |   60.54 |   59.71 |   56.58 | 60.03 ± 1.88 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   61.26 |   57.35 |   61.93 |   61.2  |   57.91 | 59.93 ± 1.9  |
+
+## ICDAR Europeana
+
+## Model: [`stefan-it/byt5-small-historic-multilingual-flax`](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax)
+
+| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------------------------|---------|---------|---------|---------|---------|--------------|
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   85.01 |   87.32 |   86.41 |   86.71 |   86.91 | 86.47 ± 0.79 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   85.87 |   85.79 |   85.96 |   85.34 |   87.29 | 86.05 ± 0.66 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   85.41 |   85.91 |   87.2  |   85.14 |   86.46 | 86.02 ± 0.74 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   86.88 |   86.94 |   85.77 |   85.48 |   84.73 | 85.96 ± 0.85 |
+
+## Model: [`stefan-it/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/stefan-it/byt5-small-english-german-french-finnish-swedish-dutch)
+
+| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------------------------|---------|---------|---------|---------|---------|--------------|
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   84.59 |   84.89 |   85.58 |   84.7  |   84.25 | 84.8 ± 0.44  |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   84.41 |   84.63 |   83.83 |   84.89 |   84.75 | 84.5 ± 0.37  |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   84.14 |   82.28 |   85.45 |   85.87 |   84.2  | 84.39 ± 1.25 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   83.77 |   82.37 |   84.31 |   85.34 |   83.18 | 83.79 ± 1.01 |
 
 </details>
