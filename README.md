@@ -23,6 +23,7 @@ We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine
 
 # **New**: Logbook
 
+* 10.05.2022: Finalizing datasets and languages for small benchmark.
 * 29.04.2022: Training of first [Multilingual model](https://huggingface.co/stefan-it/byt5-small-historic-multilingual-flax)
               crashed after 11 days with 560k steps trained. We will perform evaluations with this model now.
 * 25.04.2022: Experiments with continued pretraining are completed. It turns out, that the strategy worked for
