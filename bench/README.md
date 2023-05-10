@@ -476,3 +476,23 @@ Results with JAX/FLAX implementation on the multilingual model for 560k steps (0
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   74.82 |   74.93 |   74.89 |   75.82 |   74.02 | 74.9 ± 0.57  |
 
 </details>
+
+# Mean Noise Span Length
+
+The previously pretrained hmByT5 models "accidentally" use a mean noise span length of 3, because this value is the
+default one for T5. But the ByT5 paper mentions, that using a length of 3 would make pretraining tasks too easy, and
+recommend a value of 20. We pretrained an English model with `mean_noise_span_length=20` and fine-tuned it on English
+AjMC dataset:
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 85.48 | 84.6  | 85.65 | 86.83 | 86.53 | 85.82 ± 0.79 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 85.35 | 84.5  | 86.05 | 85.1  | 85.18 | 85.24 ± 0.5  |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 84.14 | 83.45 | 84.4  | 84.9  | 85.82 | 84.54 ± 0.79 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 85.27 | 85.3  | 83.33 | 85.25 | 81.7  | 84.17 ± 1.45 |
+
+For comparison the model using a length of 3 achieved 85.65 ± 1.21. So we can also see performance improvements when
+using `mean_noise_span_length=20`.
+
+We also pretrained a monolingual model for Dutch on the Delpher corpus with both `mean_noise_span_length=3` and
+`mean_noise_span_length=20` and will run performance comparisons soon.
