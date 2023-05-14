@@ -495,4 +495,24 @@ For comparison the model using a length of 3 achieved 85.65 ± 1.21. So we can a
 using `mean_noise_span_length=20`.
 
 We also pretrained a monolingual model for Dutch on the Delpher corpus with both `mean_noise_span_length=3` and
-`mean_noise_span_length=20` and will run performance comparisons soon.
+`mean_noise_span_length=20`.
+
+Results with `mean_noise_span_length=3` on ICDAR Europeana:
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 88.02 | 88.71 | 87.17 | 87    | 88.62 | 87.9 ± 0.71  |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 87.1  | 86.72 | 87.15 | 88.29 | 87.35 | 87.32 ± 0.53 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 87.23 | 87.19 | 87.11 | 87.62 | 87.11 | 87.25 ± 0.19 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 85.98 | 87.5  | 84.22 | 87.08 | 86.48 | 86.25 ± 1.14 |
+
+Results with `mean_noise_span_length=20` on ICDAR Europeana:
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 86.61 | 85.88 | 87.65 | 87.93 | 88.01 | 87.22 ± 0.83 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 87.88 | 87.56 | 85.62 | 86.52 | 87.03 | 86.92 ± 0.8  |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 86.17 | 85.87 | 87.77 | 86.58 | 87.96 | 86.87 ± 0.85 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 87.67 | 86.02 | 85.66 | 87    | 85.99 | 86.47 ± 0.75 |
+
+For the Dutch model on ICDAR Europeana we do not see performance improvements when using `mean_noise_span_length=20`. 
