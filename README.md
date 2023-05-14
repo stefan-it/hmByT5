@@ -23,6 +23,8 @@ We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine
 
 # **New**: Logbook
 
+* 14.05.2022: Add results for two trained monolingual models for Dutch. It turns out that using a `mean_noise_span_length=20`
+              slightly underperforms a model pretrained with `mean_noise_span_length=3` on Dutch par of ICDAR Europeana.
 * 10.05.2022: Finalizing datasets and languages for small benchmark. We also performed experiments using the proposed
               `mean_noise_span_length=20` from the ByT5 paper. On English AjMC dataset we can see a performance boost
               when using a length of 20.
