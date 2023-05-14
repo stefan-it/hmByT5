@@ -492,7 +492,8 @@ AjMC dataset:
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 85.27 | 85.3  | 83.33 | 85.25 | 81.7  | 84.17 ± 1.45 |
 
 For comparison the model using a length of 3 achieved 85.65 ± 1.21. So we can also see performance improvements when
-using `mean_noise_span_length=20`.
+using `mean_noise_span_length=20`. The model can be found under
+[`stefan-it/byt5-small-historic-english-span20`](https://huggingface.co/stefan-it/byt5-small-historic-english-span20).
 
 We also pretrained a monolingual model for Dutch on the Delpher corpus with both `mean_noise_span_length=3` and
 `mean_noise_span_length=20`.
@@ -515,4 +516,9 @@ Results with `mean_noise_span_length=20` on ICDAR Europeana:
 | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 86.17 | 85.87 | 87.77 | 86.58 | 87.96 | 86.87 ± 0.85 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 87.67 | 86.02 | 85.66 | 87    | 85.99 | 86.47 ± 0.75 |
 
-For the Dutch model on ICDAR Europeana we do not see performance improvements when using `mean_noise_span_length=20`. 
+For the Dutch model on ICDAR Europeana we do not see performance improvements when using `mean_noise_span_length=20`.
+
+The Dutch monolingual models can be found under:
+
+* [`stefan-it/byt5-small-historic-dutch`](https://huggingface.co/stefan-it/byt5-small-historic-dutch)
+* [`stefan-it/byt5-small-historic-dutch-span20`](https://huggingface.co/stefan-it/byt5-small-historic-dutch-span20)
