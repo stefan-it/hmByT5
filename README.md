@@ -21,8 +21,12 @@ Additionally, we perform pretraining using Transformers JAX/FLAX example, detail
 We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine-tuning can be found
 [here](bench/README.md).
 
-# **New**: Logbook
+# **New**: Logbook of preliminary experiments
 
+* 21.05.2022: Pretraining of ByT5 Base models for English and Dutch are completed. We already performed fine-tuning
+              experiments for English, Dutch will follow. The preliminary experiments with the pretraining corpus of
+              six languages are now completed. We are building a new and documented pretraining corpus now, that also
+              includes Norwegian. Experiments will follow soon.
 * 14.05.2022: Add results for two trained monolingual models for Dutch. It turns out that using a `mean_noise_span_length=20`
               slightly underperforms a model pretrained with `mean_noise_span_length=3` on Dutch par of ICDAR Europeana.
 * 10.05.2022: Finalizing datasets and languages for small benchmark. We also performed experiments using the proposed
