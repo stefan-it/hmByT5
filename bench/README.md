@@ -522,3 +522,30 @@ The Dutch monolingual models can be found under:
 
 * [`stefan-it/byt5-small-historic-dutch`](https://huggingface.co/stefan-it/byt5-small-historic-dutch)
 * [`stefan-it/byt5-small-historic-dutch-span20`](https://huggingface.co/stefan-it/byt5-small-historic-dutch-span20)
+
+# Base Architecture
+
+In previous experiments, we only train model with ByT5 Small as initial checkpoint. For English and Dutch we trained
+models with Base Architecture and compare results.
+
+## English
+
+On English AjMC the following results can be achieved when using `mean_noise_span_length=3`:
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 86.78 | 87.46 | 85.75 | 88.41 | 86.6  | 87.0 ± 0.89  |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 86.79 | 86.29 | 86.67 | 87.14 | 85.82 | 86.54 ± 0.45 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 87.04 | 87.34 | 86.63 | 84.09 | 87.04 | 86.43 ± 1.19 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 86.87 | 86.43 | 86.88 | 85.15 | 85.25 | 86.12 ± 0.77 |
+
+With `mean_noise_span_length=20`:
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 86.51 | 87.2  | 86.22 | 85.78 | 86.46 | 86.43 ± 0.46 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 86.12 | 87.04 | 87.01 | 85.25 | 86.74 | 86.43 ± 0.68 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 86.49 | 85.27 | 86.12 | 86.29 | 85.61 | 85.96 ± 0.45 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 86.33 | 86.05 | 84.48 | 85.68 | 86.16 | 85.74 ± 0.67 |
+
+For Dutch, experiments needs to be done next.
