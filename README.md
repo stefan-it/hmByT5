@@ -8,7 +8,7 @@ Upcoming Historic Multilingual and Monolingual ByT5 Models. Following languages 
 * Finnish (Europeana Newspaper)
 * Swedish (Europeana Newspaper)
 * Dutch (Delpher Corpus)
-* More?
+* Norwegian (NCC)
 
 # Pretraining
 
