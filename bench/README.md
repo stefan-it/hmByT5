@@ -548,4 +548,7 @@ With `mean_noise_span_length=20`:
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 86.49 | 85.27 | 86.12 | 86.29 | 85.61 | 85.96 ± 0.45 |
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 86.33 | 86.05 | 84.48 | 85.68 | 86.16 | 85.74 ± 0.67 |
 
-For Dutch, experiments needs to be done next.
+The English monolingual models can be found under:
+
+* [`stefan-it/byt5-base-historic-english-span3`](https://huggingface.co/stefan-it/byt5-base-historic-english-span3)
+* [`stefan-it/byt5-base-historic-english-span20`](https://huggingface.co/stefan-it/byt5-base-historic-english-span20)
