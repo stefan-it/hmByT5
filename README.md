@@ -16,12 +16,14 @@ We pretrain hmByT5 on v3-8 and v3-32 TPUs. Details about the training can be fou
 Additionally, we perform pretraining using Transformers JAX/FLAX example, details can be found
 [here](hmbyt5-flax/README.md).
 
-# Evaluation on Downstream Tasks (NER)
+# Preliminary Experiments
+
+## Evaluation on Downstream Tasks (NER)
 
 We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine-tuning can be found
 [here](bench/README.md).
 
-# **New**: Logbook of preliminary experiments
+## **New**: Logbook
 
 * 21.05.2022: Pretraining of ByT5 Base models for English and Dutch are completed. We already performed fine-tuning
               experiments for English, Dutch will follow. The preliminary experiments with the pretraining corpus of
