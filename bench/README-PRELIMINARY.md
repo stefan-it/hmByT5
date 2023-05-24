@@ -66,6 +66,7 @@ The following table shows performance (averaged F1-score on development set, 5 r
 | [`hmbyt5-preliminary/byt5-small-multilingual-4g-2e`](https://huggingface.co/hmbyt5-preliminary/byt5-small-multilingual-4g-2e)                                                   | 83.86 ± 0.61 | 87.54 ± 0.19 | 84.29 ± 0.41 |                 |                 |              |              |      |
 | [`hmbyt5-preliminary/byt5-small-multilingual-4g-3e`](https://huggingface.co/hmbyt5-preliminary/byt5-small-multilingual-4g-3e)                                                   | 83.49 ± 0.99 | 87.38 ± 0.53 | 84.30 ± 0.51 |                 |                 |              |              |      |
 | [`hmbyt5-preliminary/byt5-small-historic-multilingual-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-flax)                                   | 83.28 ± 1.67 | 86.98 ± 0.71 | 83.49 ± 1.06 | 76.96 ± 1.58    | 78.80 ± 1.89    | 86.47 ± 0.79 | 77.43 ± 0.51 |      |
+| [`hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax)                     | 84.91 ± 0.86 | 88.02 ± 0.35 | 84.78 ± 0.75 | 77.77 ± 1.83    | 79.94 ± 0.60    | 86.85 ± 0.91 | 77.45 ± 0.54 |      |
 
 <details>
 <summary>Detailed results</summary>
@@ -198,12 +199,24 @@ continue pretraining on the same corpus for an additional epoch:
 
 Results with JAX/FLAX implementation on the multilingual model for 560k steps (0.5 epochs):
 
-| Configuration                            |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
-|------------------------------------------|---------|---------|---------|---------|---------|--------------|
-| `wsFalse-bs8-e10-lr0.00016-poolingfirst` |   85.04 |   80.71 |   82.57 |   82.92 |   85.17 | 83.28 ± 1.67 |
-| `wsFalse-bs4-e10-lr0.00016-poolingfirst` |   83.7  |   82.12 |   83.12 |   84.16 |   83.1  | 83.24 ± 0.69 |
-| `wsFalse-bs4-e10-lr0.00015-poolingfirst` |   83.83 |   83.76 |   82.64 |   84.1  |   81.49 | 83.16 ± 0.97 |
-| `wsFalse-bs8-e10-lr0.00015-poolingfirst` |   78.65 |   83.69 |   80.97 |   84.02 |   82.21 | 81.91 ± 1.96 |
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 85.04 | 80.71 | 82.57 | 82.92 | 85.17 | 83.28 ± 1.67 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 83.7  | 82.12 | 83.12 | 84.16 | 83.1  | 83.24 ± 0.69 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 83.83 | 83.76 | 82.64 | 84.1  | 81.49 | 83.16 ± 0.97 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 78.65 | 83.69 | 80.97 | 84.02 | 82.21 | 81.91 ± 1.96 |
+
+## Model: [`hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax)
+
+Results with JAX/FLAX implementation on the multilingual model for 850k steps (1 epoch):
+
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 84.63 | 83.89 | 85.31 | 84.37 | 86.36 | 84.91 ± 0.86 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 84.21 | 85.48 | 85.14 | 83.45 | 83.7  | 84.4 ± 0.79  |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 83.18 | 85.82 | 82.24 | 82.41 | 83.35 | 83.4 ± 1.28  |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 82.51 | 82.64 | 83.73 | 82.53 | 82.52 | 82.79 ± 0.47 |
 
 ## AjMC German
 
@@ -300,6 +313,15 @@ Results with JAX/FLAX implementation on the multilingual model for 560k steps (0
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 85.31 | 85.04 | 84.83 | 85.68 | 84.9  | 85.15 ± 0.31 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 85.71 | 84.86 | 80.23 | 85.89 | 85.68 | 84.47 ± 2.15 |
 
+## Model: [`hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax)
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 88.48 | 87.53 | 87.77 | 88.33 | 88    | 88.02 ± 0.35 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 87.95 | 86.71 | 89.26 | 87.39 | 88.78 | 88.02 ± 0.92 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 85.61 | 86.3  | 86.9  | 86.6  | 85.95 | 86.27 ± 0.46 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 85.58 | 85.68 | 84.96 | 85.78 | 85.95 | 85.59 ± 0.34 |
+
 ## AjMC French
 
 ## Model: [`hmbyt5/byt5-small-english`](https://huggingface.co/hmbyt5/byt5-small-english)
@@ -395,6 +417,15 @@ Results with JAX/FLAX implementation on the multilingual model for 560k steps (0
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 83.46 | 81.55 | 81.84 | 81.67 | 82.53 | 82.21 ± 0.71 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 81.44 | 82.53 | 80.64 | 83.29 | 82.27 | 82.03 ± 0.91 |
 
+## Model: [`hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax)
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 85.07 | 85.14 | 83.7  | 85.82 | 84.17 | 84.78 ± 0.75 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 83.31 | 82.78 | 83.94 | 85.61 | 83.02 | 83.73 ± 1.02 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 82.99 | 84.89 | 83.46 | 82.41 | 83.92 | 83.53 ± 0.84 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 82.4  | 83.69 | 83.39 | 82.84 | 83.33 | 83.13 ± 0.46 |
+
 ## NewsEye Finnish
 
 ## Model: [`hmbyt5-preliminary/byt5-small-historic-multilingual-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-flax)
@@ -405,6 +436,15 @@ Results with JAX/FLAX implementation on the multilingual model for 560k steps (0
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 78.19 | 76.76 | 75.85 | 77.61 | 74.95 | 76.67 ± 1.17 |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 74.47 | 66.95 | 71.34 | 53.76 | 65.81 | 66.47 ± 7.07 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 46.39 | 64.97 | 66.53 | 60.81 | 71.22 | 61.98 ± 8.48 |
+
+## Model: [`hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax)
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 77.02 | 77.22 | 75.54 | 81.06 | 78.02 | 77.77 ± 1.83 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 78.87 | 77.87 | 75.32 | 78.35 | 76.69 | 77.42 ± 1.27 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 65.82 | 64.64 | 78.35 | 72.93 | 71.91 | 70.73 ± 5.01 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 73.19 | 75.26 | 62.34 | 55.19 | 62.2  | 65.64 ± 7.5  |
 
 ## Model: [`hmbyt5-preliminary/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/hmbyt5-preliminary/byt5-small-english-german-french-finnish-swedish-dutch)
 
@@ -426,6 +466,15 @@ Results with JAX/FLAX implementation on the multilingual model for 560k steps (0
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 74.46 | 64.86 | 71.25 | 63.91 | 65.23 | 67.94 ± 4.16 |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 61.07 | 62.72 | 67.03 | 63.57 | 68.47 | 64.57 ± 2.75 |
 
+## Model: [`hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax)
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 80.59 | 80.29 | 78.83 | 80.15 | 79.85 | 79.94 ± 0.6  |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 77.31 | 76.76 | 79.56 | 79.85 | 79.42 | 78.58 ± 1.28 |
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 66.43 | 65.58 | 75.09 | 65.7  | 64.39 | 67.44 ± 3.88 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 65.57 | 73.51 | 65.59 | 64.29 | 66.67 | 67.13 ± 3.28 |
+
 ## Model: [`hmbyt5-preliminary/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/hmbyt5-preliminary/byt5-small-english-german-french-finnish-swedish-dutch)
 
 | Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
@@ -446,6 +495,15 @@ Results with JAX/FLAX implementation on the multilingual model for 560k steps (0
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 85.41 | 85.91 | 87.2  | 85.14 | 86.46 | 86.02 ± 0.74 |
 | `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 86.88 | 86.94 | 85.77 | 85.48 | 84.73 | 85.96 ± 0.85 |
 
+## Model: [`hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax)
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 87.11 | 88.4  | 86.86 | 85.86 | 86.04 | 86.85 ± 0.91 |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 87.77 | 86.12 | 86.76 | 85.58 | 87.03 | 86.65 ± 0.75 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 86.57 | 85.16 | 86.84 | 86.98 | 86.05 | 86.32 ± 0.66 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 85.99 | 86.67 | 86.12 | 84.72 | 87.97 | 86.29 ± 1.05 | 
+
 ## Model: [`hmbyt5-preliminary/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/hmbyt5-preliminary/byt5-small-english-german-french-finnish-swedish-dutch)
 
 | Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
@@ -465,6 +523,15 @@ Results with JAX/FLAX implementation on the multilingual model for 560k steps (0
 | `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 75.74 | 77.68 | 77.7  | 78.59 | 76.81 | 77.3 ± 0.96  |
 | `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 77.55 | 77.32 | 76.77 | 76.67 | 76.68 | 77.0 ± 0.37  |
 | `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 77.29 | 76.78 | 76.85 | 77.71 | 76.27 | 76.98 ± 0.49 |
+
+## Model: [`hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax`](https://huggingface.co/hmbyt5-preliminary/byt5-small-historic-multilingual-span20-flax)
+
+| Configuration                            | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Avg.         |
+|------------------------------------------|-------|-------|-------|-------|-------|--------------|
+| `wsFalse-bs8-e10-lr0.00016-poolingfirst` | 77.47 | 78.04 | 77.02 | 78.02 | 76.68 | 77.45 ± 0.54 |
+| `wsFalse-bs8-e10-lr0.00015-poolingfirst` | 77.31 | 77.03 | 76.26 | 77.69 | 77.19 | 77.1 ± 0.47  |
+| `wsFalse-bs4-e10-lr0.00015-poolingfirst` | 76.87 | 76.87 | 77.18 | 77.9  | 76.6  | 77.08 ± 0.45 |
+| `wsFalse-bs4-e10-lr0.00016-poolingfirst` | 76.67 | 76.64 | 77.15 | 77.37 | 76.97 | 76.96 ± 0.28 |
 
 ## Model: [`hmbyt5-preliminary/byt5-small-english-german-french-finnish-swedish-dutch`](https://huggingface.co/hmbyt5-preliminary/byt5-small-english-german-french-finnish-swedish-dutch)
 
