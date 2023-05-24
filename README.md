@@ -1,5 +1,7 @@
 # hmByT5
 
+[![🤗](logo.jpeg "🤗")](https://github.com/stefan-it/hmByT5)
+
 Upcoming Historic Multilingual and Monolingual ByT5 Models. Following languages will be covered:
 
 * English (British Library Corpus - Books)
@@ -9,6 +11,11 @@ Upcoming Historic Multilingual and Monolingual ByT5 Models. Following languages 
 * Swedish (Europeana Newspaper)
 * Dutch (Delpher Corpus)
 * Norwegian (NCC)
+
+# Changelog
+
+* 24.05.2022: We created two new organisations at Hugging Face Model Hub: [hmByT5 Preliminary](https://huggingface.co/hmbyt5-preliminary)
+              and [hmByT5](https://huggingface.co/hmbyt5), where preliminary models and final models are uploaded.
 
 # Pretraining
 
@@ -67,15 +74,8 @@ We use Flair to fine-tune hmByT5 on historic NER dataset. Details about the fine
 
 # Planned/upcoming stuff
 
-* Monolingual Dutch model (for comparison with [Delpher LM](https://github.com/stefan-it/delpher-lm)). Pretraining is
-  currently running, see [here](https://huggingface.co/stefan-it/byt5-small-historic-dutch).
 * Hyper-parameter experiments: For example pretraining English model with different learning rates for a fixed number of
   hours to compare performance (both training and eval loss).
-* Next larger architecture: ByT5 Base Model (starting with English).
-* Adding another language, for example Norwegian as proposed [here](https://github.com/stefan-it/hmByT5/issues/1).
-* In current experiments, we use `mean_noise_span_length=3` as default parameter, whereas default ByT5 paper suggests
-  using a value of [20](https://github.com/stefan-it/hmByT5/blob/main/hmbyt5/configs/0_english_operative_config.gin#L17).
-  English model shows an improvement, we now run experiments for Dutch.
 
 # Acknowledgements
 
