@@ -1,0 +1,12 @@
+{
+    "seeds": [1,2,3,4,5],
+    "batch_sizes": [4,8],
+    "hf_model": "hmbyt5/byt5-small-multilingual-upsampled-original",
+    "context_size": 0,
+    "epochs": [10],
+    "learning_rates": [0.00015, 0.00016],
+    "subword_poolings": ["first"],
+    "hipe_datasets": ["ajmc/en"],
+    "byt5_embedding_implementation": "own",
+    "cuda": "0"
+}
