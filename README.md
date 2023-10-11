@@ -2,7 +2,7 @@
 
 [![🤗](logo.jpeg "🤗")](https://github.com/stefan-it/hmByT5)
 
-Upcoming Historic Multilingual and Monolingual ByT5 Models. Following languages will be covered:
+Upcoming Historical Multilingual and Monolingual ByT5 Models. Following languages will be covered:
 
 * English (British Library Corpus - Books)
 * German (Europeana Newspaper)
